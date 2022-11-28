@@ -2,39 +2,38 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {   // –ú–µ—Ç–æ–¥ main —Å–æ–±—Å—Ç–≤–µ–Ω–Ω–æ–π –ø–µ—Ä—Å–æ–Ω–æ–π
         System.out.print("Input: ");
         Scanner in = new Scanner(System.in);
         String input = in.nextLine();
         System.out.println("Output: " + calc(input));
     }
 
-    public static String calc(String input) {
+    public static String calc(String input) {   // –º–µ—Ç–æ–¥ calc –∏–Ω–∏—Ü–∏–∞–ª–∏–∑–∏—Ä—É–µ—Ç –∏ –ø—Ä–∏–Ω–∏–º–∞–µ—Ç –∑–Ω–∞—á–µ–Ω–∏—è –æ—Ç –≤—Å–µ—Ö –º–µ—Ç–æ–¥–æ–≤
         String[] inArr = input.split(" ");
         String y = initialMethod(inArr);
-        if (y.equals("inArab")){
+        if (y.equals("inArab")) {
             return calcArab(inArr);
         }
-        if (y.equals("inRom")){
+        if (y.equals("inRom")) {
             return calcRom(inArr);
         }
-        return y;
+        return null;
     }
 
-    static String initialMethod(String[] inArr) {
+    static String initialMethod(String[] inArr) { // —Å—Ç–∞—Ä—Ç–æ–≤—ã–π –º–µ—Ç–æ–¥
         String[] signArr = {"+", "-", "/", "*"};
 
-
         if (inArr.length != 3) {
-            throw new IndexOutOfBoundsException("/Ú.Í. ÙÓÏ‡Ú Ï‡ÚÂÏ‡ÚË˜ÂÒÍÓÈ ÓÔÂ‡ˆËË ÌÂ Û‰Ó‚ÎÂÚ‚ÓˇÂÚ Á‡‰‡ÌË˛ - ‰‚‡ ÓÔÂ‡Ì‰‡ Ë Ó‰ËÌ ÓÔÂ‡ÚÓ (+, -, /, *)");
+            throw new IndexOutOfBoundsException("—Ç.–∫. —Ñ–æ—Ä–º–∞—Ç –º–∞—Ç–µ–º–∞—Ç–∏—á–µ—Å–∫–æ–π –æ–ø–µ—Ä–∞—Ü–∏–∏ –Ω–µ —É–¥–æ–≤–ª–µ—Ç–≤–æ—Ä—è–µ—Ç –∑–∞–¥–∞–Ω–∏—é - –¥–≤–∞ –æ–ø–µ—Ä–∞–Ω–¥–∞ –∏ –æ–¥–∏–Ω –æ–ø–µ—Ä–∞—Ç–æ—Ä (+, -, /, *)");
         }
 
         for (String i : signArr) {
             if (inArr[1].equals(i)) {
                 break;
             }
-            if (i.equals("*")) { // Õ‡ÈÚË Â¯ÂÌËÂ ÔÓÎÛ˜¯Â!!
-                throw new IndexOutOfBoundsException("/Ú.Í. ÙÓÏ‡Ú Ï‡ÚÂÏ‡ÚË˜ÂÒÍÓÈ ÓÔÂ‡ˆËË ÌÂ Û‰Ó‚ÎÂÚ‚ÓˇÂÚ - Ó‰ËÌ ÓÔÂ‡ÚÓ (+, -, /, *)");
+            if (i.equals("*")) { // –ù–∞–π—Ç–∏ —Ä–µ—à–µ–Ω–∏–µ –ø–æ–ª—É—á—à–µ, —Ö–æ—Ç—è –æ—à–∏–±–∫—É –¥–æ–ª–∂–µ–Ω –ø–µ—Ä–µ—Ö–≤–∞—Ç–∏—Ç—å default –≤ –º–µ—Ç–æ–¥–µ calcRom –∏–ª–∏ calcArab
+                throw new IndexOutOfBoundsException("—Ç.–∫. —Ñ–æ—Ä–º–∞—Ç –º–∞—Ç–µ–º–∞—Ç–∏—á–µ—Å–∫–æ–π –æ–ø–µ—Ä–∞—Ü–∏–∏ –Ω–µ —É–¥–æ–≤–ª–µ—Ç–≤–æ—Ä—è–µ—Ç - –æ–¥–∏–Ω –æ–ø–µ—Ä–∞—Ç–æ—Ä (+, -, /, *)");
             }
         }
 
@@ -47,10 +46,10 @@ public class Main {
         } catch (NumberFormatException e) {
             return "inRom";
         }
-        throw new IllegalArgumentException("throws Exception //Ú.Í. ‡Î¸ÍÛÎˇÚÓ ‰ÓÎÊÂÌ ÔËÌËÏ‡Ú¸ Ì‡ ‚ıÓ‰ ˜ËÒÎ‡ ÓÚ 1 ‰Ó 10 ‚ÍÎ˛˜ËÚÂÎ¸ÌÓ, ÌÂ ·ÓÎÂÂ.");
+        throw new IllegalArgumentException("throws Exception //—Ç.–∫. –ø—Ä–æ–≥—Ä–∞–º–º–∞ –ø—Ä–∏–Ω–∏–º–∞–µ—Ç —á–∏—Å–ª–∞ –æ—Ç 0 –¥–æ 10 –≤–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–æ");
     }
 
-    private static String[] checkerRom(String[] inArr){
+    static int[] checkerRom(String[] inArr) { // –ø—Ä–æ–∫—Å–∏ –º–µ—Ç–æ–¥ calcRom –¥–ª—è –ø–µ—Ä–µ–≤–æ–¥–∞ —Ä–∏–º—Å–∫–∏—Ö —Ü–∏—Ñ—Ä –≤ –∞—Ä–∞–±—Å–∫–∏–µ
         String[] romanArr = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
         int calcNumberRom = 0, count = 0, out1 = 0, out2 = 0;
 
@@ -66,73 +65,57 @@ public class Main {
             }
         }
         if (calcNumberRom == 2) {
-            inArr[0] = String.valueOf(out1);
-            inArr[2] = String.valueOf(out2);
-            return inArr;
+            if (out1 == 0 || out2 == 0) {
+                throw new IllegalArgumentException("throws Exception //—Ç.–∫. –∏—Å–ø–æ–ª—å–∑—É—é—Ç—Å—è –æ–¥–Ω–æ–≤—Ä–µ–º–µ–Ω–Ω–æ —Ä–∞–∑–Ω—ã–µ —Å–∏—Å—Ç–µ–º—ã –∏—Å—á–∏—Å–ª–µ–Ω–∏—è");
+            }
+            return new int[]{out1, out2};
 
         } else {
-            throw new IllegalArgumentException("throws Exception //Ú.Í. Í‡Î¸ÍÛÎˇÚÓ ‰ÓÎÊÂÌ ÔËÌËÏ‡Ú¸ Ì‡ ‚ıÓ‰ ˜ËÒÎ‡ ÓÚ 1 ‰Ó 10 ‚ÍÎ˛˜ËÚÂÎ¸ÌÓ, ÌÂ ·ÓÎÂÂ.");
+            throw new IllegalArgumentException("throws Exception //—Ç.–∫. –ø—Ä–æ–≥—Ä–∞–º–º–∞ –ø—Ä–∏–Ω–∏–º–∞–µ—Ç —á–∏—Å–ª–∞ –æ—Ç 0 –¥–æ 10 –≤–∫–ª—é—á–∏—Ç–µ–ª—å–Ω–æ");
         }
     }
 
-    private static String calcRom(String[] inArr){
-        String[] rm = checkerRom(inArr);
-        int res = 0;
-
-        for (String j : rm){
-            System.out.print(j);
-        }
-        System.out.println("");
-        int pi1 = Integer.parseInt(rm[0]);
-        int pi2 = Integer.parseInt(rm[0]);
+    static String calcRom(String[] inArr) {  // –º–µ—Ç–æ–¥ —Ä–∏–º—Å–∫–∏—Ö —Ü–∏—Ñ—Ä
+        int[] rm = checkerRom(inArr);
+        int res;
+        int pi1 = rm[0];
+        int pi2 = rm[1];
 
         switch (inArr[1]) {
-            case "+" -> {
-                res = pi1 + pi2;
-            }
-            case "-" -> {
-                res = pi1 - pi2;
-            }
-            case "*" -> {
-                res = pi1 * pi2;
-            }
+            case "+" -> res = pi1 + pi2;
+            case "-" -> res = pi1 - pi2;
+            case "*" -> res = pi1 * pi2;
             case "/" -> {
                 if (pi1 == 0 || pi2 == 0) {
-                    throw new IndexOutOfBoundsException("Õ‡ ÌÓÎ¸ ‰ÂÎËÚ¸ ÌÂÎ¸Áˇ");
+                    throw new IndexOutOfBoundsException("–ù–∞ –Ω–æ–ª—å –¥–µ–ª–∏—Ç—å –Ω–µ–ª—å–∑—è");
                 }
-                res = pi1 / pi2;
+                res = (int) Math.round ((double) pi1 / (double) pi2); // –≥–æ–≤–Ω–æ–∫–æ–¥
             }
-            default -> {
-                throw new IndexOutOfBoundsException("Œ¯Ë·Í‡ ÔÓ ËÚÓ„‡Ï ÒÍÎ‡‰˚‚‡ÌËˇ ˜ËÒÂÎ ÓÏ‡Ì");
-            }
+            default -> throw new IndexOutOfBoundsException("–û—à–∏–±–∫–∞ –ø–æ –∏—Ç–æ–≥–∞–º —Å–∫–ª–∞–¥—ã–≤–∞–Ω–∏—è —á–∏—Å–µ–ª —Ä–æ–º–∞–Ω");
         }
-        for (RomanNam j : RomanNam.values()){
-            if((j.ordinal() + 1) == res){
+        if (res <= 0) {
+            throw new IllegalArgumentException("throws Exception //—Ç.–∫. –≤ —Ä–∏–º—Å–∫–æ–π —Å–∏—Å—Ç–µ–º–µ –Ω–µ—Ç –Ω—É–ª—è –∏–ª–∏ –æ—Ç—Ä–∏—Ü–∞—Ç–µ–ª—å–Ω—ã—Ö —á–∏—Å–µ–ª");
+        }
+        for (RomanNam j : RomanNam.values()) {
+            if ((j.ordinal() + 1) == res) {
                 return String.valueOf(j);
-
             }
         }
 
-        throw new IndexOutOfBoundsException("Œ¯Ë·Í‡ ÍÓÌ‚ÂÚ‡ˆËË");
+        throw new IndexOutOfBoundsException("–û—à–∏–±–∫–∞ –∫–æ–Ω–≤–µ—Ä—Ç–∞—Ü–∏–∏");
     }
 
-    private static String calcArab(String[] inArr) {
-        int res = 0;
+    private static String calcArab(String[] inArr) { // –º–µ—Ç–æ–¥ –∞—Ä–∞–±—Å–∫–∏—Ö —Ü–∏—Ñ—Ä
+        int res;
+
         switch (inArr[1]) {
-            case "+" -> {
-                res = Integer.parseInt(inArr[0]) + Integer.parseInt(inArr[2]);
-            }
-            case "-" -> {
-                res = Integer.parseInt(inArr[0]) - Integer.parseInt(inArr[2]);
-            }
-            case "*" -> {
-                res = Integer.parseInt(inArr[0]) * Integer.parseInt(inArr[2]);
-            }
-            case "/" -> {
-                res = Integer.parseInt(inArr[0]) / Integer.parseInt(inArr[2]);
-            }
-            default -> throw new IndexOutOfBoundsException("Œ¯Ë·Í‡ ÔÓ ËÚÓ„‡Ï ÒÍÎ‡‰˚‚‡ÌËˇ ˜ËÒÂÎ ‡‡·ËÍ");
+            case "+" -> res = Integer.parseInt(inArr[0]) + Integer.parseInt(inArr[2]);
+            case "-" -> res = Integer.parseInt(inArr[0]) - Integer.parseInt(inArr[2]);
+            case "*" -> res = Integer.parseInt(inArr[0]) * Integer.parseInt(inArr[2]);
+            case "/" -> res = (int) Math.round( (double) Integer.parseInt(inArr[0]) / (double) Integer.parseInt(inArr[2])); // –¥–∞–±–ª –≥–æ–≤–Ω–æ–∫–æ–¥
+            default -> throw new IndexOutOfBoundsException("–û—à–∏–±–∫–∞ –ø–æ –∏—Ç–æ–≥–∞–º —Å–∫–ª–∞–¥—ã–≤–∞–Ω–∏—è —á–∏—Å–µ–ª –∞—Ä–∞–±–∏–∫");
         }
+
         return String.valueOf(res);
     }
 }
